@@ -1,0 +1,21 @@
+{
+  "extends": ["eslint:recommended", "google"],
+  "parserOptions": {
+    "ecmaVersion": 8
+  },
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "arrow-parens": ["error", "as-needed"]
+  },
+  "globals": {
+    "describe": true,
+    "context": true,
+    "it": true,
+    "xdescribe": true,
+    "xcontext": true,
+    "xit": true
+  }
+}
