@@ -4,8 +4,10 @@
   "description": "Simple github viewer that allows you to search users by programming languages",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_PATH=./src nodemon --harmony index.js",
     "lint": "eslint .",
-    "test": "NODE_ENV=test NODE_PATH=. mocha --harmony"
+    "test": "NODE_ENV=test NODE_PATH=./src mocha --harmony",
+    "test:watch": "NODE_ENV=test NODE_PATH=./src mocha --harmony --watch"
   },
   "engines": {
     "node": "7.5.0"
@@ -22,14 +24,18 @@
   "homepage": "https://github.com/tadjik1/github-viewer#readme",
   "devDependencies": {
     "eslint": "^3.16.0",
-    "eslint-config-google": "^0.7.1"
+    "eslint-config-google": "^0.7.1",
+    "nock": "^9.0.6",
+    "nodemon": "^1.11.0",
+    "pm2": "^2.4.0"
   },
   "dependencies": {
+    "bunyan": "^1.8.5",
     "config": "^1.25.1",
     "koa": "^2.0.0-alpha.8",
     "koa-router": "^7.0.1",
-    "lodash": "^4.17.4",
     "mocha": "^3.2.0",
+    "ramda": "^0.23.0",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
   }

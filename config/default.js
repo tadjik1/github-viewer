@@ -1,9 +1,10 @@
 module.exports = {
+  applicationName: 'github-viewer',
   server: {
     port: 3000
   },
   github: {
-    fields: ['login', 'avatar_url'],
+    fields: ['login', 'name', 'avatar_url', 'followers'],
     client: {
       protocol: 'https',
       host: 'api.github.com',
@@ -12,8 +13,6 @@ module.exports = {
         'User-Agent': 'tadjik1/github-viewer'
       },
       query: {
-        client_id: '',
-        client_secret: ''
       }
     }
   }

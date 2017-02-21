@@ -1,4 +1,4 @@
 const config = require('config');
-const app = require('./modules/app');
+const app = require('app');
 
 app.listen(config.get('server.port'));

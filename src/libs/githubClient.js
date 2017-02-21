@@ -1,9 +1,12 @@
 const config = require('config');
-const request = require('request-promise').defaults({
-  json: true
-});
 const url = require('url');
 const qs = require('qs');
+const request = require('request-promise').defaults({
+  json: true,
+  resolveWithFullResponse: true,
+  simple: false
+});
+const extractPagination = require('utils/extractPagination');
 
 exports.fetchUsersByLanguage = async language => {
   const query = Object.assign({},
@@ -23,7 +26,9 @@ exports.fetchUsersByLanguage = async language => {
     headers: config.get('github.client.headers')
   });
 
-  return response;
+  const pagination = extractPagination(response.headers);
+
+  return {body: response.body, pagination};
 };
 
 exports.fetchUser = async username => {
@@ -43,5 +48,5 @@ exports.fetchUser = async username => {
     headers: config.get('github.client.headers')
   });
 
-  return response;
+  return response.body;
 };

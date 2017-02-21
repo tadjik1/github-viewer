@@ -1,0 +1,9 @@
+apps:
+  - name               : github-viewer
+    script             : index.js
+    interpreter_args   : --harmony
+    exec_mode          : cluster
+    instances          : max
+    env                :
+      NODE_ENV   : production
+      NODE_PATH  : ./src

@@ -1,1 +1,1 @@
-web: node --harmony index.js
+web: NODE_PATH=./src node --harmony index.js
