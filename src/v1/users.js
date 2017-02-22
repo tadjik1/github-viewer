@@ -14,7 +14,7 @@ exports.fetchUsersByLanguage = async ctx => {
   }));
 
   ctx.body = {
-    users: users.map(formatUser),
+    users: users.map(({body}) => formatUser(body)),
     pagination
   };
 };
