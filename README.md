@@ -31,11 +31,11 @@ https://github-users-viewer.herokuapp.com/api/v1/users/javascript
 ## Description
 This is small API service that provides ability to search users on github based on languages that they are using.
 ### Technologies
-Project written in Javascript (Node.js) and use Koa.js as a main framework. Usages of Node.js >= 7.0.0 allows to use `async/await` which are pretty nice and usefull feature from ES2017.
-For testing it's use mocha and assert libraries, also there is mock library called nock.
+Project is written in Javascript (Node.js) and uses Koa.js as a main framework. Application of Node.js >= 7.0.0 allows to use `async/await` which is a pretty nice and usefull feature from ES2017.
++For testing use mocha and assert libraries are used, also there is a mock library called nock.
 
 ### Authorization
-Currently for local development uses unauthorized github flow which allows make only 60 requests per hour. If you want locally get more requests please specify CLIENT_ID and CLIENT_SECRET env variables. Check [this](https://developer.github.com/v3/#rate-limiting) for additional info.
+Currently for local development unauthorized github flow is used which allows to make only 60 requests per hour. If you want to get more requests locally, please specify CLIENT_ID and CLIENT_SECRET env variables. Check [this](https://developer.github.com/v3/#rate-limiting) for additional info.
 
 ### Docker
 You can run this application inside docker container. Please note that you still can set env variables using --env option.
