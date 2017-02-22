@@ -3,14 +3,14 @@ const url = require('url');
 const qs = require('qs');
 const request = require('request-promise').defaults({
   json: true,
-  resolveWithFullResponse: true,
-  simple: false
+  resolveWithFullResponse: true
 });
 const extractPagination = require('utils/extractPagination');
 
-exports.fetchUsersByLanguage = async language => {
+exports.fetchUsersByLanguage = async (language, parameters = {}) => {
   const query = Object.assign({},
     config.get('github.client.query'),
+    parameters,
     {q: `language:${language}`}
   );
 
@@ -31,9 +31,10 @@ exports.fetchUsersByLanguage = async language => {
   return {body: response.body, pagination};
 };
 
-exports.fetchUser = async username => {
+exports.fetchUser = async (username, parameters = {}) => {
   const query = Object.assign({},
-    config.get('github.client.query')
+    config.get('github.client.query'),
+    parameters
   );
 
   const uri = url.format({
@@ -45,8 +46,18 @@ exports.fetchUser = async username => {
 
   const response = await request({
     uri,
-    headers: config.get('github.client.headers')
+    headers: config.get('github.client.headers'),
+    // if request failed - just pass error as a result
+    simple: false
   });
 
-  return response.body;
+  // but we still want to log error response
+  if (response.statusCode !== 200) {
+    console.error(
+      `Failed to load user ${username} with parameters ${JSON.stringify(query)}.
+      Status code: ${JSON.stringify(response.statusCode)}, error: ${JSON.stringify(response.body)}`
+    );
+  }
+
+  return {body: response.body};
 };

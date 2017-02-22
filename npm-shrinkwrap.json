@@ -2056,6 +2056,11 @@
       "from": "koa-is-json@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/koa-is-json/-/koa-is-json-1.0.0.tgz"
     },
+    "koa-mount": {
+      "version": "2.0.0",
+      "from": "koa-mount@next",
+      "resolved": "https://registry.npmjs.org/koa-mount/-/koa-mount-2.0.0.tgz"
+    },
     "koa-router": {
       "version": "7.0.1",
       "from": "koa-router@next",

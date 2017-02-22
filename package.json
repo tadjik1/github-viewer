@@ -33,6 +33,7 @@
     "bunyan": "^1.8.5",
     "config": "^1.25.1",
     "koa": "^2.0.0-alpha.8",
+    "koa-mount": "^2.0.0",
     "koa-router": "^7.0.1",
     "mocha": "^3.2.0",
     "ramda": "^0.23.0",

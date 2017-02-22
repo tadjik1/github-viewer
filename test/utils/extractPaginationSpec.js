@@ -8,7 +8,7 @@ describe('extractPagination test suite', () => {
       const result = extractPagination(headers);
 
       assert.deepEqual(result, {
-        total_pages: 34,
+        total: 34,
         page: 1
       });
     });
