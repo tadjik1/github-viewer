@@ -44,5 +44,3 @@ You can run this application inside docker container. Please note that you still
 $ docker build -t github-viewer .
 $ docker run -ti --env CLIENT_ID=client_id -p 8080:8080 github-viewer
 ```
-
-
